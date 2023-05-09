@@ -34,22 +34,31 @@ firstP.appendChild(newLink);
 
 //create li, put at top of ul
 const newLi = document.createElement('li')
-newLi.innerHTML = todo.innerHTML;
+
 newLi.classList.add('todo')
 newLi.innerText = 'newest li';
+
+const bottomLi = document.createElement('li')
+bottomLi.classList.add('todo');
+bottomLi.innerText = 'bottomLi'
 
 
 const parentUl = document.querySelector('ul');
 
 const firstLi = document.querySelector('li.todo')
 
-const todoLis = document.querySelectorAll('li.todo').length - 1;
-const lastLi = document.querySelectorAll('li.todo')[todoLis]
+// const todoLis = document.querySelectorAll('li.todo').length - 1;
+// const lastLi = document.querySelectorAll('li.todo')[todoLis]
 
 // top
-//parentUl.insertBefore(newLi, firstLi)
+parentUl.insertBefore(newLi, firstLi)
 
 //bottom
-parentUl.insertBefore(newLi, lastLi )
+parentUl.insertAdjacentElement('beforeend', bottomLi);
 
 
+//remove "peas"
+const vegUl = document.querySelector('section ul')
+const removePeas = vegUl.querySelector('.special')
+
+vegUl.removeChild(removePeas)
